@@ -64,6 +64,9 @@ export function CheckPermissions() {
           <Button variant="contained" color="primary" onClick={handleClick}>
             Request permissions
           </Button>
+          <Typography variant="body2">
+            <br />
+          </Typography>
         </Grid>
 
         <Grid item md={5}>
