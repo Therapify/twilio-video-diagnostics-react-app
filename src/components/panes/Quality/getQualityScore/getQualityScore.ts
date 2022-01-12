@@ -1,6 +1,7 @@
 import { QualityScore } from '../Quality';
 import { PreflightTestReport } from 'twilio-video';
 import { MediaConnectionBitrateTest } from '@twilio/rtc-diagnostics';
+// import {SpeedTestService} from 'ng-speed-test';
 
 export function getSingleQualityScore(
   stat: number | undefined,
@@ -67,8 +68,8 @@ export function getQualityScore(
   const totalQualityScore = Math.min(
     latency.qualityScore,
     jitter.qualityScore,
-    packetLoss.qualityScore,
-    bitrate.qualityScore
+    packetLoss.qualityScore
+    // bitrate.qualityScore
   ) as QualityScore;
 
   return {
