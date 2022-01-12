@@ -6,7 +6,7 @@ import { MainContent } from './components/MainContent/MainContent';
 import { Logo } from './icons/Logo';
 
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+// import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDKCpvKwUNcDnjGarrM1MruzrF96xu_2bc',
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  // const analytics = getAnalytics(app);
 
   return (
     <AppStateProvider>
