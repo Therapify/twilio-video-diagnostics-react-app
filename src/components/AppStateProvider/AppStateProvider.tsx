@@ -14,7 +14,6 @@ export enum ActivePane {
   CameraTest,
   AudioTest,
   BrowserTest,
-  Connectivity,
   Quality,
   Results,
 }
@@ -133,19 +132,9 @@ export function useAppStateContext() {
 
 // helper function for determining whether to disable the down arrow button:
 export const isDownButtonDisabled = (currentState: stateType) => {
-  const {
-    activePane,
-    preflightTestInProgress,
-    preflightTest,
-    bitrateTestInProgress,
-    audioInputTestReport,
-    audioOutputTestReport,
-    videoInputTestReport,
-  } = currentState;
+  const { activePane, audioInputTestReport, audioOutputTestReport, videoInputTestReport } = currentState;
 
-  const connectionFailedOrLoading =
-    activePane === ActivePane.Connectivity &&
-    (preflightTestInProgress || bitrateTestInProgress || preflightTest.error !== null);
+  const connectionFailedOrLoading = false;
 
   const deviceTestErrors =
     !!audioInputTestReport?.errors.length ||
@@ -312,20 +301,12 @@ export const AppStateProvider: React.FC = ({ children }) => {
   const userAgentInfo = userAgentParser.getResult();
 
   const downloadFinalTestResults = () => {
-    const signalingGateway = state.preflightTest.signalingGatewayReachable ? 'Reachable' : 'Unreachable';
-    const turnServers = state.preflightTest.turnServersReachable ? 'Reachable' : 'Unreachable';
     const maxBitrate = state.bitrateTest.report?.values ? Math.max(...state.bitrateTest.report.values) : 0;
 
     const finalTestResults = {
       audioTestResults: { inputTest: state.audioInputTestReport, outputTest: state.audioOutputTestReport },
       bitrateTestResults: { maxBitrate, ...state.bitrateTest.report },
       browserInformation: userAgentInfo,
-      connectivityResults: {
-        twilioServices: { ...state.twilioStatus },
-        signalingRegion: signalingGateway,
-        TURN: turnServers,
-      },
-      preflightTestReport: { report: state.preflightTest.report, error: state.preflightTest.error?.message || null },
       videoTestResults: state.videoInputTestReport,
     };
 

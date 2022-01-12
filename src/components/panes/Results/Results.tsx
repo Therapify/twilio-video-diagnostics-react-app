@@ -113,7 +113,7 @@ export function Results() {
             </Typography>
             <Button
               variant="outlined"
-              onClick={() => dispatch({ type: 'set-active-pane', newActivePane: ActivePane.Connectivity })}
+              onClick={() => dispatch({ type: 'set-active-pane', newActivePane: ActivePane.Quality })}
             >
               Review connectivity
             </Button>
