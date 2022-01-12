@@ -1,18 +1,16 @@
-import { useEffect, useRef } from 'react';
-import clsx from 'clsx';
 import { Button, makeStyles, useTheme } from '@material-ui/core';
+import clsx from 'clsx';
+import { useEffect, useRef } from 'react';
 import Video from 'twilio-video';
-
-import { ActivePane, useAppStateContext } from '../AppStateProvider/AppStateProvider';
 import { ArrowDown } from '../../icons/ArrowDown';
 import { ArrowUp } from '../../icons/ArrowUp';
+import { ActivePane, useAppStateContext } from '../AppStateProvider/AppStateProvider';
 import { AudioTest } from '../panes/AudioTest/AudioTest';
 import { BrowserTest } from '../panes/BrowserTest/BrowserTest';
 import { CameraTest } from '../panes/CameraTest/CameraTest';
 import { CheckPermissions } from '../panes/DeviceSetup/CheckPermissions/CheckPermissions';
-import { Connectivity } from '../panes/Connectivity/Connectivity';
-import { GetStarted } from '../panes/GetStarted/GetStarted';
 import { PermissionError } from '../panes/DeviceSetup/PermissionError/PermissionError';
+import { GetStarted } from '../panes/GetStarted/GetStarted';
 import { Quality } from '../panes/Quality/Quality';
 import { Results } from '../panes/Results/Results';
 import { Snackbar } from '../Snackbar/Snackbar';
@@ -128,7 +126,6 @@ const content = [
   { pane: ActivePane.CameraTest, component: <CameraTest /> },
   { pane: ActivePane.AudioTest, component: <AudioTest /> },
   { pane: ActivePane.BrowserTest, component: <BrowserTest /> },
-  { pane: ActivePane.Connectivity, component: <Connectivity /> },
   { pane: ActivePane.Quality, component: <Quality /> },
   { pane: ActivePane.Results, component: <Results /> },
 ];
@@ -139,7 +136,6 @@ export function MainContent() {
 
   const devicesPermitted = state.audioGranted && state.videoGranted;
   const testsInProgress = state.preflightTestInProgress || state.bitrateTestInProgress;
-  const onLoadingScreen = state.activePane === ActivePane.Connectivity && testsInProgress;
 
   const deviceTestErrors =
     !!state.audioInputTestReport?.errors.length ||
@@ -158,7 +154,6 @@ export function MainContent() {
             [classes.hideAfter]:
               state.activePane === ActivePane.DeviceCheck ||
               state.activePane === ActivePane.DeviceError ||
-              onLoadingScreen ||
               (state.activePane === ActivePane.BrowserTest && (testsInProgress || !Video.isSupported)),
           })}
         >
