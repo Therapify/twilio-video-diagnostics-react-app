@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
+import { AudioInputTest, AudioOutputTest, MediaConnectionBitrateTest, VideoInputTest } from '@twilio/rtc-diagnostics';
 import produce, { current } from 'immer';
+import React, { createContext, useCallback, useContext, useEffect, useReducer } from 'react';
 import Video, { PreflightTestReport } from 'twilio-video';
 import UAParser from 'ua-parser-js';
+import useBitrateTest from './useBitrateTest/useBitrateTest';
 import usePreflightTest from './usePreflightTest/usePreflightTest';
 import useTwilioStatus from './useTwilioStatus/useTwilioStatus';
-import useBitrateTest from './useBitrateTest/useBitrateTest';
-import { VideoInputTest, MediaConnectionBitrateTest, AudioInputTest, AudioOutputTest } from '@twilio/rtc-diagnostics';
 
 export enum ActivePane {
   GetStarted,

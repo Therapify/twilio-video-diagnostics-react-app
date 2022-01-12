@@ -1,11 +1,10 @@
-import { makeStyles, Button, Container, Grid, Typography } from '@material-ui/core';
-import { ActivePane, useAppStateContext } from '../../AppStateProvider/AppStateProvider';
+import { Button, Container, Grid, makeStyles, Typography } from '@material-ui/core';
 import { CheckMark } from '../../../icons/CheckMark';
 import { DownloadIcon } from '../../../icons/DownloadIcon';
+import { SmallError } from '../../../icons/SmallError';
+import { ActivePane, useAppStateContext } from '../../AppStateProvider/AppStateProvider';
 import { getQualityScore } from '../Quality/getQualityScore/getQualityScore';
 import { QualityScore } from '../Quality/Quality';
-import { SmallError } from '../../../icons/SmallError';
-import SomeFailed from './SomeFailed.png';
 
 const useStyles = makeStyles({
   resultContainer: {

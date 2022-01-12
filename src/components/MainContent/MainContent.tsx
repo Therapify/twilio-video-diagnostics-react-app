@@ -1,17 +1,16 @@
-import { useEffect, useRef } from 'react';
-import clsx from 'clsx';
 import { Button, makeStyles, useTheme } from '@material-ui/core';
+import clsx from 'clsx';
+import { useEffect, useRef } from 'react';
 import Video from 'twilio-video';
-
-import { ActivePane, useAppStateContext } from '../AppStateProvider/AppStateProvider';
 import { ArrowDown } from '../../icons/ArrowDown';
 import { ArrowUp } from '../../icons/ArrowUp';
+import { ActivePane, useAppStateContext } from '../AppStateProvider/AppStateProvider';
 import { AudioTest } from '../panes/AudioTest/AudioTest';
 import { BrowserTest } from '../panes/BrowserTest/BrowserTest';
 import { CameraTest } from '../panes/CameraTest/CameraTest';
 import { CheckPermissions } from '../panes/DeviceSetup/CheckPermissions/CheckPermissions';
-import { GetStarted } from '../panes/GetStarted/GetStarted';
 import { PermissionError } from '../panes/DeviceSetup/PermissionError/PermissionError';
+import { GetStarted } from '../panes/GetStarted/GetStarted';
 import { Quality } from '../panes/Quality/Quality';
 import { Results } from '../panes/Results/Results';
 import { Snackbar } from '../Snackbar/Snackbar';
