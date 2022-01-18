@@ -86,9 +86,7 @@ let getPaneName = function (index: number): string {
       return 'Device & Software Setup';
     case index == 6:
       return 'Connectivity';
-    case index == 7:
-      return 'Quality & Performance';
-    case index > 7:
+    case index > 6:
       return 'Get Results';
     default:
       return 'Therapify video diagnostics';

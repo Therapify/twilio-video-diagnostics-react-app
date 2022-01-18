@@ -11,7 +11,6 @@ import { CameraTest } from '../panes/CameraTest/CameraTest';
 import { CheckPermissions } from '../panes/DeviceSetup/CheckPermissions/CheckPermissions';
 import { PermissionError } from '../panes/DeviceSetup/PermissionError/PermissionError';
 import { GetStarted } from '../panes/GetStarted/GetStarted';
-import { Quality } from '../panes/Quality/Quality';
 import { Results } from '../panes/Results/Results';
 import { Snackbar } from '../Snackbar/Snackbar';
 
@@ -126,7 +125,6 @@ const content = [
   { pane: ActivePane.CameraTest, component: <CameraTest /> },
   { pane: ActivePane.AudioTest, component: <AudioTest /> },
   { pane: ActivePane.BrowserTest, component: <BrowserTest /> },
-  { pane: ActivePane.Quality, component: <Quality /> },
   { pane: ActivePane.Results, component: <Results /> },
 ];
 

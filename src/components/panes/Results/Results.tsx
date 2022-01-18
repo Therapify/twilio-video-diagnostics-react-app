@@ -35,7 +35,7 @@ export function Results() {
   const classes = useStyles();
 
   const testsPassed = totalQualityScore === QualityScore.Excellent || totalQualityScore === QualityScore.Good;
-  const qualityScore = QualityScore[totalQualityScore].toLowerCase();
+  // const qualityScore = QualityScore[totalQualityScore].toLowerCase();
 
   return (
     <>
@@ -97,52 +97,6 @@ export function Results() {
               onClick={() => dispatch({ type: 'set-active-pane', newActivePane: ActivePane.BrowserTest })}
             >
               Review browser
-            </Button>
-          </div>
-
-          <div className={classes.resultContainer}>
-            <div className={classes.iconContainer}>
-              <CheckMark />
-              <Typography variant="h3" gutterBottom>
-                Connectivity
-              </Typography>
-            </div>
-            <Typography variant="body1" gutterBottom>
-              All connections are working successfully.
-            </Typography>
-            <Button
-              variant="outlined"
-              onClick={() => dispatch({ type: 'set-active-pane', newActivePane: ActivePane.Quality })}
-            >
-              Review connectivity
-            </Button>
-          </div>
-
-          <div className={classes.resultContainer}>
-            <div className={classes.iconContainer}>
-              {testsPassed ? <CheckMark /> : <SmallError />}
-              <Typography variant="h3" gutterBottom>
-                Quality &amp; Performance
-              </Typography>
-            </div>
-
-            {testsPassed ? (
-              <Typography variant="body1" gutterBottom>
-                Awesome! Your expected call quality is <strong>{qualityScore}</strong> and overall performance looks
-                {qualityScore === 'excellent' ? ' good' : ' ok'}.
-              </Typography>
-            ) : (
-              <Typography variant="body1" gutterBottom>
-                Your overall score is <strong>{qualityScore}</strong> which means that your connection isn't good enough
-                to run video properly. Try out these tips and rerun the test
-              </Typography>
-            )}
-
-            <Button
-              variant="outlined"
-              onClick={() => dispatch({ type: 'set-active-pane', newActivePane: ActivePane.Quality })}
-            >
-              Review performance
             </Button>
           </div>
         </Grid>

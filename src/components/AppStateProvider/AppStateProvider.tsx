@@ -14,7 +14,6 @@ export enum ActivePane {
   CameraTest,
   AudioTest,
   BrowserTest,
-  Quality,
   Results,
 }
 
